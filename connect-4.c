@@ -23,14 +23,106 @@ void game_board()
              "|      |       |       |       |       |       |      |\n               "
              "|      |       |       |       |       |       |      |\n               "
              "+------+-------+-------+-------+-------+-------+------|\n               "
-              
-              
-              );
+
+    );
 }
 
-
-
-
+void game_loop()
+{
+    int column;
+    int ch;
+    game_board();
+    mvprintw(3, 19, "v");
+    column = 0;
+    while (ch != KEY_DOWN)
+    {
+        ch = getch();
+        if (ch == KEY_RIGHT && column == 0)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 26, "v");
+            column = 1;
+        }
+        else if (ch == KEY_RIGHT && column == 1)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 34, "v");
+            column = 2;
+        }
+        else if (ch == KEY_RIGHT && column == 2)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 42, "v");
+            column = 3;
+        }
+        else if (ch == KEY_RIGHT && column == 3)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 50, "v");
+            column = 4;
+        }
+        else if (ch == KEY_RIGHT && column == 4)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 58, "v");
+            column = 5;
+        }
+        else if (ch == KEY_RIGHT && column == 5)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 66, "v");
+            column = 6;
+        }
+        else if (ch == KEY_LEFT && column == 6)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 58, "v");
+            column = 5;
+        }
+        else if (ch == KEY_LEFT && column == 5)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 50, "v");
+            column = 4;
+        }
+        else if (ch == KEY_LEFT && column == 4)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 42, "v");
+            column = 3;
+        }
+        else if (ch == KEY_LEFT && column == 3)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 34, "v");
+            column = 2;
+        }
+        else if (ch == KEY_LEFT && column == 2)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 26, "v");
+            column = 1;
+        }
+        else if (ch == KEY_LEFT && column == 1)
+        {
+            clear();
+            game_board();
+            mvprintw(3, 18, "v");
+            column = 0;
+        }
+    }
+}
 
 void init_curses()
 {
@@ -69,8 +161,9 @@ void init_curses()
             refresh();
         }
     }
-    if(to == 1){
-        game_board();
+    if (to == 1)
+    {
+        game_loop();
     }
 
     endwin();
