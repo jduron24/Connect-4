@@ -1,5 +1,5 @@
-poke327: connect-4.c
-	gcc -o connect-4 -lncurses
+connect-4: connect-4.c
+	gcc -o connect-4 
 run:
 	./connect-4 
 clean:
